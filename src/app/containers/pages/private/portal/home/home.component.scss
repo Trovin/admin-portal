@@ -1,0 +1,47 @@
+@import 'mixins';
+@import 'variables';
+
+.home-headline {
+  color: $sub-headline-color;
+  font-size: 36px;
+  margin-bottom: 60px;
+}
+
+.task-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.task-item {
+  width: 50%;
+  font-size: 18px;
+  line-height: 26px;
+  display: flex;
+  color: $headline-color;
+  font-weight: bold;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-right: 20px;
+}
+
+.task-decoration {
+  @include task-decoration(35);
+}
+
+@media screen and (max-width: 1300px) {
+
+  .grid-container {
+    flex-direction: column;
+  }
+
+  .item-card {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+
+  .task-item {
+    width: 100%;
+  }
+}

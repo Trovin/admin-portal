@@ -1,0 +1,38 @@
+@import 'helper';
+@import 'variables';
+
+.portal {
+  display: flex;
+  min-height: 100vh;
+  position: relative;
+}
+
+.wrapper {
+  width: 100%;
+  left: 0;
+  display: flex;
+  position: relative;
+  transition: $transition;
+  flex-direction: column;
+}
+
+.wrapper_with-offset {
+  left: $sidebar-width-lg;
+  width: $wrapper-width-lg;
+}
+
+@media screen and (max-width: 1180px) {
+
+  .wrapper_with-offset {
+    left: $sidebar-width-md;
+    width: $wrapper-width-md;
+  }
+}
+
+@media screen and (max-width: 620px) {
+
+  .wrapper_with-offset {
+    left: 0;
+    width: $wrapper-width-xs;
+  }
+}

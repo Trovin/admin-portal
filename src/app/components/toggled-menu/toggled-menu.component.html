@@ -1,0 +1,9 @@
+<button
+  type="button"
+  class="hamburger hamburger--spin"
+  (click)="isActive = !isActive"
+  [ngClass]="{ 'is-active': isActive }">
+  <span class="hamburger-box">
+    <span class="hamburger-inner"></span>
+  </span>
+</button>

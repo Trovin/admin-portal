@@ -1,0 +1,12 @@
+<div class="workflow-content">
+  <div class="workflow-decoration">{{item.value.charAt(0)}}</div>
+
+  <div>
+    <div class="workflow-title">
+      <i *ngIf="item.isPriority" class="fa fa-star task-icon" aria-hidden="true"></i> {{item.value}}
+    </div>
+    <div [ngClass]="['workflow-subscription', className]">
+      <ng-content></ng-content>
+    </div>
+  </div>
+</div>

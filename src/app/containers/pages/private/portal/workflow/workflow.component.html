@@ -1,0 +1,114 @@
+<div class="workflow">
+
+  <div class="workflow-container">
+    <div class="headline">To Do
+      <mat-spinner *ngIf="loading" class="spinner-icon" [diameter]="30"></mat-spinner>
+      <i *ngIf="!loading" class="fa fa-angle-right workflow-icon fade-in" aria-hidden="true"></i>
+    </div>
+
+    <div
+      cdkDropList
+      class="workflow-list"
+      [id]="categoryList.TO_DO"
+      [attr.data-status]="statusType.TO_DO"
+      #todoList="cdkDropList"
+      [cdkDropListData]="toDoList"
+      [cdkDropListConnectedTo]="[progressList, completeList]"
+      (cdkDropListDropped)="drop($event)">
+      <div
+        cdkDrag
+        [id]="item.id"
+        class="workflow-box"
+        *ngFor="let item of toDoList; let i = index;"
+        [@moveFromBottom]="{ value: !animationState ? 'out' : 'in', params: { time: i / 5 + 's' }}">
+
+        <app-workflow-content [item]="item">
+          <i class="fa fa-external-link" aria-hidden="true"></i> to do
+        </app-workflow-content>
+
+        <app-task-status-menu
+          [item]="item"
+          [currentList]="categoryList.TO_DO"
+          (addNewTask)="createTask()"
+          (removeTaskItem)="deleteTask($event)"
+          (updateTaskStatus)="changeTaskList($event)"
+          (toggleTaskPriority)="updateTask($event)">
+        </app-task-status-menu>
+      </div>
+    </div>
+  </div>
+
+  <div class="workflow-container">
+    <div class="headline">In progress
+      <mat-spinner *ngIf="loading" class="spinner-icon" [diameter]="30"></mat-spinner>
+      <i *ngIf="!loading" class="fa fa-angle-right workflow-icon fade-in" aria-hidden="true"></i>
+    </div>
+
+    <div
+      cdkDropList
+      class="workflow-list"
+      [id]="categoryList.IN_PROGRESS"
+      [attr.data-status]="statusType.IN_PROGRESS"
+      #progressList="cdkDropList"
+      [cdkDropListData]="inProgressList"
+      [cdkDropListConnectedTo]="[todoList, completeList]"
+      (cdkDropListDropped)="drop($event)">
+      <div
+        cdkDrag
+        [id]="item.id"
+        class="workflow-box"
+        *ngFor="let item of inProgressList; let i = index;"
+        [@moveFromBottom]="{ value: !animationState ? 'out' : 'in', params: { time: i / 5 + 's' }}">
+
+        <app-workflow-content [item]="item">
+          <i class="fa fa-spinner" aria-hidden="true"></i> in progress
+        </app-workflow-content>
+
+        <app-task-status-menu
+          [item]="item"
+          [currentList]="categoryList.IN_PROGRESS"
+          (addNewTask)="createTask()"
+          (removeTaskItem)="deleteTask($event)"
+          (updateTaskStatus)="changeTaskList($event)"
+          (toggleTaskPriority)="updateTask($event)">
+        </app-task-status-menu>
+      </div>
+    </div>
+  </div>
+
+  <div class="workflow-container">
+    <div class="headline">Completed</div>
+
+    <div
+      cdkDropList
+      class="workflow-list"
+      [id]="categoryList.COMPLETED"
+      [attr.data-status]="statusType.COMPLETED"
+      #completeList="cdkDropList"
+      [cdkDropListData]="completedList"
+      [cdkDropListConnectedTo]="[todoList, progressList]"
+      (cdkDropListDropped)="drop($event)">
+      <div
+        cdkDrag
+        [id]="item.id"
+        class="workflow-box"
+        *ngFor="let item of completedList; let i = index;"
+        [@moveFromBottom]="{ value: !animationState ? 'out' : 'in', params: { time: i / 5 + 's' }}">
+
+        <app-workflow-content [className]="'workflow-subscription_completed'" [item]="item">
+          <i class="fa fa-check-circle-o" aria-hidden="true"></i> completed!
+        </app-workflow-content>
+
+        <app-task-status-menu
+          [item]="item"
+          [currentList]="categoryList.COMPLETED"
+          (addNewTask)="createTask()"
+          (removeTaskItem)="deleteTask($event)"
+          (updateTaskStatus)="changeTaskList($event)"
+          (toggleTaskPriority)="updateTask($event)">
+        </app-task-status-menu>
+      </div>
+    </div>
+  </div>
+
+</div>

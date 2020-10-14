@@ -1,0 +1,24 @@
+{
+  "plugins": ["stylelint-declaration-use-variable"],
+  "rules": {
+    "indentation": 2,
+    "string-quotes": "single",
+    "sh-waqar/declaration-use-variable": [
+      [
+        "/color/",
+        "/background-color/",
+        {
+          "ignoreValues": [
+            "inherit",
+            "initial",
+            "transparent",
+            "/regexForspecialFunc/"
+          ]
+        }
+      ]
+    ]
+  },
+  "ignoreFiles": [
+    "app/assets/styles/_typography.scss"
+  ]
+}

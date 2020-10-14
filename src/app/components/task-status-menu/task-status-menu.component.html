@@ -1,0 +1,35 @@
+<div mat-button [matMenuTriggerFor]="menu">
+  <button class="task-menu">
+    <svg
+      class="task-menu__icon"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24" fill="black">
+      <path d="M0 0h24v24H0z" fill="none"/>
+      <path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/>
+    </svg>
+  </button>
+</div>
+
+<mat-menu class="dropped-menu" #menu="matMenu">
+  <ng-container *ngFor="let item of items">
+    <div
+      *ngIf="item.list !== currentList"
+      class="task-menu__item"
+      (click)="processTaskStatus(item)">
+      {{item.status}} <i class="{{item.iconClass}}" aria-hidden="true"></i>
+    </div>
+  </ng-container>
+
+  <div class="task-menu__item" (click)="changePriority()">
+    Change priority <i class="fa fa-star" aria-hidden="true"></i>
+  </div>
+
+  <div class="task-menu__item" (click)="addNewTask.emit()">
+    Add new task <i class="fa fa-plus" aria-hidden="true"></i>
+  </div>
+
+  <div class="task-menu__item" (click)="removeSelectedTask()">
+    Remove task <i class="fa fa-trash-o" aria-hidden="true"></i>
+  </div>
+</mat-menu>
+

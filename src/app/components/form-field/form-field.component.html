@@ -1,0 +1,6 @@
+<label class="field-label" [ngClass]="{ 'field-label_active': isFocus }">
+  <span (click)="isPassword && toggleFieldType()" class="icon-container">
+    <ng-content select="[slot=icon]"></ng-content>
+  </span>
+  <ng-content></ng-content>
+</label>

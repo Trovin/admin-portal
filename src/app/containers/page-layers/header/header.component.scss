@@ -1,0 +1,11 @@
+@import 'mixins';
+@import 'variables';
+
+.header {
+  font-size: 34px;
+  display: flex;
+  align-items: center;
+  @include box-shadow;
+  transition: $transition;
+  justify-content: space-between;
+}

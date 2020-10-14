@@ -1,0 +1,46 @@
+@import 'variables';
+@import 'keyframes';
+
+@mixin task-decoration($size) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: $size + px;
+  height: $size + px;
+  flex-shrink: 0;
+  margin-right: 10px;
+  border-radius: 50%;
+  font-size: 22px;
+  color: $white-color;
+  background-color: $theme-dark-color-items;
+}
+
+@mixin box-shadow {
+  -webkit-box-shadow: 0 0 17px -12px rgba(37,57,110,1);
+  -moz-box-shadow: 0 0 17px -12px rgba(37,57,110,1);
+  box-shadow: 0 0 17px -12px rgba(37,57,110,1);
+}
+
+@mixin decoration-element {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: block;
+}
+
+@mixin width-animation {
+  animation: width $short-transition linear;
+}
+
+@mixin bubble-animation {
+  animation: bubble $transition linear;
+}
+
+@mixin rotate-animation {
+  animation: rotate 10s infinite linear;
+}
+
+@mixin fade-in {
+  animation: fadeIn $long-transition linear;
+}

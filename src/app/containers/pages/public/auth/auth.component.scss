@@ -1,0 +1,126 @@
+@import 'mixins';
+@import 'variables';
+
+.auth-section {
+  width: 100%;
+  min-height: 100vh;
+  padding: 80px 20px;
+  background-color: $white-color;
+}
+
+.auth-wrapper {
+  max-width: 700px;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: $white-color;
+  margin: 0 auto;
+  border-radius: 20px;
+  -webkit-box-shadow: 0 0 18px -4px rgba(222,222,222,1);
+  -moz-box-shadow: 0 0 18px -4px rgba(222,222,222,1);
+  box-shadow: 0 0 18px -4px rgba(222,222,222,1);
+}
+
+.auth-header {
+  width: 100%;
+  display: flex;
+  overflow: hidden;
+  justify-content: space-between;
+  background-color: $theme-color;
+  border-radius: 10px;
+}
+
+.auth-list {
+  display: flex;
+  height: 100%;
+  list-style: none;
+
+  &__item {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    min-height: 80px;
+    position: relative;
+    color: $white-color;
+    padding: 0 30px;
+    font-size: 24px;
+    text-transform: capitalize;
+
+    &::before {
+      content: '';
+      display: block;
+      width: 0;
+      height: 0;
+      background-color: $theme-dark-color;
+      border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    &:hover::before {
+      @include bubble-animation;
+    }
+
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      bottom: 0;
+      width: 0;
+      height: 10px;
+      transition: $long-transition;
+      background-color: $theme-dark-color-items;
+    }
+
+    &_left::after {
+      right: 0;
+    }
+
+    &_right::after {
+      left: 0;
+    }
+
+    &_active::after {
+      width: 100%;
+    }
+  }
+
+  &__link {
+    padding: 10px;
+    z-index: 2;
+  }
+}
+
+.auth-body {
+  width: 400px;
+  max-width: 100%;
+  padding: 90px 20px;
+}
+
+@media screen and (max-width: 768px) {
+
+  .auth-body {
+    padding: 40px 20px;
+  }
+
+  .auth-nav {
+    width: 100%;
+  }
+
+  .auth-list__item {
+    width: 50%;
+    justify-content: center;
+    padding: 0 10px;
+    font-size: 22px;
+    font-weight: bold;
+
+    &::after {
+      height: 6px;
+    }
+  }
+}

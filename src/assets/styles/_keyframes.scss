@@ -1,0 +1,39 @@
+@keyframes width {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes bubble {
+  0% {
+    opacity: .9;
+    width: 0;
+    height: 0;
+  }
+  100% {
+    opacity: 0;
+    width: 100px;
+    height: 100px;
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

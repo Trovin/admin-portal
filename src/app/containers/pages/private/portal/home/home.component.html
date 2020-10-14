@@ -1,0 +1,34 @@
+<h2 class="home-headline">
+  Hello <span class="headline-decor">{{user.firstName}} {{user.lastName}}!</span>
+</h2>
+
+<div class="grid-container home">
+  <div class="item-card">
+    <div class="item-card__title">
+      Priority stats
+      <mat-spinner *ngIf="loading" class="spinner-icon" [diameter]="26"></mat-spinner>
+    </div>
+
+    <app-chart
+      [type]="chartType.DOUGHNUT"
+      [text]="chartStats.text"
+      [values]="chartStats.values"
+      [labels]="chartStats.labels"
+      [colors]="chartStats.colors">
+    </app-chart>
+  </div>
+
+  <div class="item-card">
+    <div class="item-card__title">
+      Last priority tasks
+      <mat-spinner *ngIf="loading" class="spinner-icon" [diameter]="26"></mat-spinner>
+    </div>
+
+    <ul class="task-container">
+      <li *ngFor="let task of tasks" class="task-item fade-in">
+        <div class="task-decoration">{{task.value.charAt(0)}}</div>
+        {{task.value}}
+      </li>
+    </ul>
+  </div>
+</div>

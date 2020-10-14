@@ -1,0 +1,140 @@
+@import 'mixins';
+@import 'helper';
+@import 'variables';
+
+.sidebar-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: 20px;
+}
+
+.sidebar-toggler {
+  display: none;
+}
+
+
+/* light theme */
+.sidebar_light-theme {
+  background-color: $theme-light-color;
+
+  .sidebar-item:after {
+    background-color: $theme-light-color-items;
+  }
+
+  .sidebar-item__icon {
+    color: $white-color;
+  }
+}
+
+/* dark theme */
+.sidebar_dark-theme {
+  background-color: $theme-color;
+}
+
+
+.sidebar-item {
+  padding: 30px;
+  display: block;
+  position: relative;
+  font-size: 24px;
+  transition: $transition;
+  text-transform: capitalize;
+
+  &__inner {
+    z-index: 2;
+    color: $white-color;
+    position: relative;
+  }
+
+  &:before {
+    width: 10px;
+    height: 0;
+    z-index: 2;
+    @include decoration-element;
+    transition: $transition;
+  }
+
+  &:after {
+    width: 0;
+    height: 100%;
+    @include decoration-element;
+    transition: $transition;
+    background-color: $nav-item-color;
+  }
+
+  &:hover:not(.sidebar-item_active) {
+    letter-spacing: 2px;
+
+    &:before {
+      height: 100%;
+      background-color: $decor-item--hover;
+    }
+
+    &:after {
+      width: 100%;
+      @include width-animation;
+    }
+  }
+}
+
+.sidebar-item__icon {
+  margin-right: 10px;
+  color: $theme-dark-color-items;
+}
+
+.sidebar-item_active {
+
+  &:before {
+    height: 100%;
+    background-color: $decor-item--active;
+  }
+
+  &:after {
+    width: 100%;
+  }
+}
+
+.theme-toggler {
+  color: $white-color;
+  font-size: 20px;
+  margin-top: 20px;
+  padding-left: 30px;
+}
+
+.sidebar {
+  width: $sidebar-width-lg;
+  min-height: 100%;
+  left: -100%;
+  top: 0;
+  z-index: 2;
+  padding-bottom: 50px;
+  position: absolute;
+  overflow: hidden;
+  transition: $transition;
+
+  &-link {
+    color: $white-color;
+  }
+}
+
+@media screen and (max-width: 1180px) {
+
+  .sidebar {
+    width: $sidebar-width-md;
+  }
+}
+
+@media screen and (max-width: 620px) {
+
+  .sidebar {
+    width: $sidebar-width-xs;
+    height: 100vh;
+    position: fixed;
+    overflow-y: auto;
+  }
+
+  .sidebar-toggler {
+    display: block;
+  }
+}

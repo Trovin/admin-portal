@@ -1,0 +1,89 @@
+@import 'variables';
+
+button {
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+}
+
+.btn {
+  padding: 20px 60px;
+  width: 385px;
+  max-width: 100%;
+  background-color: $theme-dark-color-items;
+  color: $white-color;
+  font-weight: bold;
+  font-size: 24px;
+  border-radius: 40px;
+  transition: $short-transition;
+  position: relative;
+  text-transform: capitalize;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    display: block;
+    width: 0;
+    height: 100%;
+    left: -50px;
+    top: 50%;
+    position: absolute;
+    border-radius: 50%;
+    background-color: $btn-decor;
+    transform: translate(0, -50%);
+    transition: 0.6s;
+    z-index: -1;
+  }
+
+  &::after {
+    content: '\f105';
+    position: absolute;
+    right: 55px;
+    top: 50%;
+    transform: translate(0, -50%);
+    font-family: FontAwesome;
+    font-weight: normal;
+    font-style: normal;
+    text-decoration:none;
+    transition: $short-transition;
+  }
+
+  &:hover {
+    opacity: .9;
+  }
+
+  &:hover::before {
+    width: 90%;
+    height: 200%;
+  }
+
+  &:hover::after {
+    right: 45px;
+  }
+
+  &:disabled {
+    background-color: $btn--disabled;
+    pointer-events: none;
+  }
+
+  &_submit {
+    margin-top: 20px;
+  }
+}
+
+:host {
+  text-align: center;
+  width: 100%;
+}
+
+:host-context(.btn-host_disabled) .btn {
+  background-color: $btn--disabled;
+  pointer-events: none;
+}
+
+@media screen and (max-width: 768px) {
+  .btn {
+    padding: 15px;
+    font-size: 20px;
+  }
+}

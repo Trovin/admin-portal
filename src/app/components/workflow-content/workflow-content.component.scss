@@ -1,0 +1,38 @@
+@import 'mixins';
+@import 'variables';
+
+.workflow-content {
+  display: flex;
+}
+
+.workflow-decoration {
+  @include task-decoration(45);
+}
+
+.workflow-title {
+  font-size: 18px;
+}
+
+.workflow-subscription {
+  font-size: 14px;
+  font-weight: 400;
+  color: $text-color;
+
+  &_completed {
+    color: $complete;
+  }
+}
+
+@media screen and (max-width: 1180px) {
+
+  .workflow-decoration {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+
+  .workflow-title {
+    font-size: 16px;
+  }
+}

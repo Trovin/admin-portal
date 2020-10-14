@@ -1,0 +1,25 @@
+<div class="auth-section">
+  <div class="auth-wrapper">
+
+    <div class="auth-header">
+      <app-logo *ngIf="showLogo" [size]="logoSize"></app-logo>
+
+      <nav class="auth-nav">
+        <ul class="auth-list">
+          <li class="auth-list__item auth-list__item_left" routerLinkActive="auth-list__item_active">
+            <a [routerLink]="['login']" class="auth-list__link">login</a>
+          </li>
+          <li class="auth-list__item auth-list__item_right" routerLinkActive="auth-list__item_active">
+            <a [routerLink]="['registration']" class="auth-list__link">register</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="auth-body">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
+
+<app-svg-background></app-svg-background>

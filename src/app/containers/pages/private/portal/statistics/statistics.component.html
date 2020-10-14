@@ -1,0 +1,52 @@
+<div class="headline">
+  Common statistics
+  <mat-spinner *ngIf="loading" class="spinner-icon" [diameter]="26"></mat-spinner>
+</div>
+
+<div class="grid-container">
+  <div class="item-card">
+    <app-chart
+      [type]="chartType.BAR"
+      idKey="1"
+      [text]="chartStats.text"
+      [values]="chartStats.values"
+      [labels]="chartStats.labels"
+      [colors]="chartStats.colors">
+    </app-chart>
+  </div>
+
+  <div class="item-card">
+    <app-chart
+      [type]="chartType.LINE"
+      idKey="2"
+      [text]="chartStats.text"
+      [values]="chartStats.values"
+      [labels]="chartStats.labels"
+      [colors]="chartStats.colors">
+    </app-chart>
+  </div>
+</div>
+
+<div class="grid-container">
+  <div class="item-card">
+    <app-chart
+      [type]="chartType.RADAR"
+      idKey="3"
+      [text]="chartStats.text"
+      [values]="chartStats.values"
+      [labels]="chartStats.labels"
+      [colors]="chartStats.colors">
+    </app-chart>
+  </div>
+
+  <div class="item-card">
+    <app-chart
+      [type]="chartType.POLAR_AREA"
+      idKey="4"
+      [text]="chartStats.text"
+      [values]="chartStats.values"
+      [labels]="chartStats.labels"
+      [colors]="chartStats.colors">
+    </app-chart>
+  </div>
+</div>

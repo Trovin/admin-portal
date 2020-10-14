@@ -1,0 +1,14 @@
+<mat-form-field
+  *ngIf="items"
+  class="select-wrapper"
+  appearance="fill"
+  floatLabel="never">
+  <mat-label>{{label}}</mat-label>
+  <mat-select
+    [value]="selectedValue"
+    (valueChange)="selectedChange.emit($event)">
+    <mat-option *ngFor="let item of items" [value]="item.value">
+      {{item.viewValue}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>

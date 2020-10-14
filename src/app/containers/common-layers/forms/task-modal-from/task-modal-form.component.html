@@ -1,0 +1,37 @@
+<h4 mat-dialog-title>Create new task</h4>
+
+<form class="form" [formGroup]="taskForm" novalidate>
+  <app-form-field>
+    <input
+      #formInput
+      class="form-control"
+      type="text"
+      name="text"
+      placeholder="Description"
+      formControlName="value" />
+    <i #formIcon slot="icon" aria-hidden="true" [ngClass]="faIcon.USER"></i>
+  </app-form-field>
+
+  <app-validation-message [invalid]="form['value'].invalid && form['value'].touched">
+    Required field <br> (min length 3 character)
+  </app-validation-message>
+
+  <app-select
+    label="Task status type"
+    [items]="selectAnswers"
+    [selectedItem]="selectedItemValue"
+    (selectedChange)="setData($event)">
+  </app-select>
+
+  <section class="example-section">
+    <mat-checkbox
+      formControlName="isPriority"
+      (change)="data.isPriority = ($event.checked)"
+      class="example-margin">
+      Mark as priority
+    </mat-checkbox>
+  </section>
+
+  <button mat-button (click)="cancel()">Cancel</button>
+  <button mat-button [mat-dialog-close]="taskForm.value" [disabled]="taskForm.invalid">Create</button>
+</form>

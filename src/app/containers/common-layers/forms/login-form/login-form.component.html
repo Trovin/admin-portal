@@ -1,0 +1,37 @@
+<form class="form" [formGroup]="loginForm" novalidate (ngSubmit)="onSubmit()">
+
+  <app-form-field>
+    <input
+      #formInput
+      type="email"
+      name="email"
+      class="form-control"
+      placeholder="Email"
+      autocomplete="on"
+      formControlName="email" />
+    <i #formIcon slot="icon" aria-hidden="true" [ngClass]="faIcon.EMAIL"></i>
+  </app-form-field>
+
+  <app-validation-message [invalid]="form['email'].invalid && form['email'].touched">
+    Email is invalid
+  </app-validation-message>
+
+  <app-form-field>
+    <input
+      #formInput
+      slot="input"
+      type="password"
+      name="password"
+      class="form-control"
+      placeholder="Password"
+      autocomplete="on"
+      formControlName="password" />
+    <i #formIcon slot="icon" aria-hidden="true" [ngClass]="faIcon.PASSWORD"></i>
+  </app-form-field>
+
+  <app-validation-message [invalid]="form['password'].invalid && form['password'].touched">
+    * Must contain: lowercase, uppercase, numbers, special characters and have length in range 8 - 24
+  </app-validation-message>
+
+  <app-button context="Login" className="btn_submit" [state]="loginForm.invalid"></app-button>
+</form>

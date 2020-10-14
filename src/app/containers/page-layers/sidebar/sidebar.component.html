@@ -1,0 +1,31 @@
+<aside
+  class="sidebar"
+  [ngStyle]="{ 'left': sidebar ? '0' : '-100%' }"
+  [ngClass]="darkMode ? 'sidebar_dark-theme' : 'sidebar_light-theme'">
+
+  <div class="sidebar-top">
+    <app-logo></app-logo>
+    <app-toggled-menu class="sidebar-toggler" [isActive]="sidebar" (click)="setSidebarState($event)"></app-toggled-menu>
+  </div>
+
+  <nav>
+    <ul class="sidebar-nav">
+      <li *ngFor="let item of menuItems">
+        <a [routerLink]="[item.routing]" (click)="closeSidebar()" class="sidebar-item" routerLinkActive="sidebar-item_active">
+        <span class="sidebar-item__inner">
+          <i [ngClass]="['sidebar-item__icon', item.iconClass]" aria-hidden="true"></i>
+          {{item.viewValue}}
+        </span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="theme-toggler">
+    <mat-slide-toggle
+      [checked]="isDarkMode"
+      (change)="changeColorMode($event)">
+      {{darkMode ? 'Dark' : 'Light'}} theme
+    </mat-slide-toggle>
+  </div>
+</aside>

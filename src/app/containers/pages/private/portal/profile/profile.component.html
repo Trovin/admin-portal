@@ -1,0 +1,16 @@
+<section class="profile">
+
+  <h2 class="headline">Update profile</h2>
+  <app-registration-form
+    class="form"
+    btnContext="Update"
+    (registerFormSubmit)="update($event)"
+    [email]="user.email"
+    [password]="user.password"
+    [lastName]="user.lastName"
+    [firstName]="user.firstName"
+    [isUpdateForm]="true"
+    [selectedItemValue]="user.selectedAnswer">
+  </app-registration-form>
+
+</section>

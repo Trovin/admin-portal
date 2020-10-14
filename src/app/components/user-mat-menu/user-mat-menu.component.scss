@@ -1,0 +1,40 @@
+@import 'variables';
+
+.flex-wrapper {
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+}
+
+.user-menu {
+  border: 0;
+  cursor: pointer;
+  margin-right: 4px;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  font-size: 16px;
+  align-items: center;
+  justify-content: center;
+  transition: $transition;
+  color: $white-color;
+  background-color: $theme-dark-color;
+
+  &__icon {
+    font-size: 25px;
+  }
+}
+
+.mat-menu-item {
+  transition: $transition;
+  text-align: center;
+  color: $white-color;
+  font-weight: bold;
+  background-color: $theme-light-color;
+
+  &_dark {
+    background-color: $theme-dark-color;
+  }
+}
+

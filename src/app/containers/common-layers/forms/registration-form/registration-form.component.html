@@ -1,0 +1,100 @@
+<form
+  class="form"
+  novalidate
+  #formElement
+  [formGroup]="registerForm"
+  (ngSubmit)="onSubmit()">
+
+  <app-form-field>
+    <input
+      #formInput
+      class="form-control"
+      type="text"
+      name="user"
+      placeholder="First name"
+      autocomplete="on"
+      formControlName="firstName" />
+    <i #formIcon slot="icon" aria-hidden="true" [ngClass]="faIcon.USER"></i>
+  </app-form-field>
+
+  <app-validation-message [invalid]="form['firstName'].invalid && form['firstName'].touched">
+    * Must match: characters length in range 3 - 12, no trailing spaces
+  </app-validation-message>
+
+  <app-form-field>
+    <input
+      #formInput
+      class="form-control"
+      type="text"
+      name="user"
+      placeholder="Last name"
+      autocomplete="on"
+      formControlName="lastName" />
+    <i #formIcon slot="icon" aria-hidden="true" [ngClass]="faIcon.USER"></i>
+  </app-form-field>
+
+  <app-validation-message [invalid]="form['lastName'].invalid && form['lastName'].touched">
+    * Must match: characters length in range 3 - 12, no trailing spaces
+  </app-validation-message>
+
+  <app-form-field>
+    <input
+      #formInput
+      class="form-control"
+      type="text"
+      name="email"
+      placeholder="Email"
+      autocomplete="on"
+      formControlName="email" />
+    <i #formIcon slot="icon" aria-hidden="true" [ngClass]="faIcon.EMAIL"></i>
+  </app-form-field>
+
+  <app-validation-message [invalid]="form['email'].invalid && form['email'].touched">
+    Email is invalid
+  </app-validation-message>
+
+  <app-form-field>
+    <input
+      #formInput
+      class="form-control"
+      type="password"
+      name="password"
+      placeholder="Password"
+      autocomplete="on"
+      formControlName="password" />
+    <i #formIcon slot="icon" aria-hidden="true" [ngClass]="faIcon.PASSWORD"></i>
+  </app-form-field>
+
+  <app-validation-message [invalid]="form['password'].invalid && form['password'].touched">
+    * Must contain: lowercase, uppercase, numbers, special characters and have length in range 8 - 24
+  </app-validation-message>
+
+  <app-form-field>
+    <input
+      #formInput
+      class="form-control"
+      type="password"
+      name="password"
+      placeholder="Confirm password"
+      autocomplete="on"
+      formControlName="confirmPassword" />
+    <i #formIcon slot="icon" aria-hidden="true" [ngClass]="faIcon.PASSWORD"></i>
+  </app-form-field>
+
+  <app-validation-message [invalid]="form['confirmPassword'].invalid && form['confirmPassword'].touched">
+    * Passwords must match
+  </app-validation-message>
+
+  <app-select
+    label="How did you hear about us ?"
+    [items]="selectAnswers"
+    [selectedItem]="selectedItemValue"
+    (selectedChange)="form['selectedAnswer'].setValue($event)">
+  </app-select>
+
+  <app-validation-message [invalid]="showUpdateValidationError && form['isUpdateFormValuesValidator'].invalid">
+    * Values on form must updates
+  </app-validation-message>
+
+  <app-button [context]=btnContext [state]="registerForm.invalid" className="btn_submit"></app-button>
+</form>

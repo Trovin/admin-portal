@@ -1,0 +1,26 @@
+@import 'variables';
+
+.large-headline {
+  text-align: center;
+  font-size: 46px;
+  font-weight: 300;
+  color: $headline-color;
+  margin-bottom: 60px;
+}
+
+:host-context(.auth-body) .large-headline {
+  margin-bottom: 80px;
+}
+
+@media screen and (max-width: 768px) {
+  .large-headline, :host-context(.auth-body) .large-headline {
+    font-size: 36px;
+    margin-bottom: 30px;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .large-headline, :host-context(.auth-body) .large-headline {
+    font-size: 30px;
+  }
+}

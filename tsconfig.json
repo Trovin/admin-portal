@@ -1,0 +1,82 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": "src",
+    "paths": {
+      "@components/*": [
+        "app/components/*"
+      ],
+      "@containers/*": [
+        "app/containers/*"
+      ],
+      "@enums/*": [
+        "app/enums/*"
+      ],
+      "@interfaces/*": [
+        "app/interfaces/*"
+      ],
+      "@locales/*": [
+        "app/locales/*"
+      ],
+      "@helpers/*": [
+        "app/helpers/*"
+      ],
+      "@mocks/*": [
+        "app/mocks/*"
+      ],
+      "@models/*": [
+        "app/models/*"
+      ],
+      "@modules/*": [
+        "app/modules/*"
+      ],
+      "@core/*": [
+        "app/modules/core/*"
+      ],
+      "@services/*": [
+        "app/modules/services/*"
+      ],
+      "@routing/*": [
+        "app/modules/routing/*"
+      ],
+      "@directives/*": [
+        "app/modules/shared/directives/*"
+      ],
+      "@pipes/*": [
+        "app/modules/shared/pipes/*"
+      ],
+      "@files/*": [
+        "assets/files/*"
+      ],
+      "@fonts/*": [
+        "assets/fonts/*"
+      ],
+      "@images/*": [
+        "assets/images/*"
+      ],
+      "@variables/*": [
+        "assets/styles/variables/*"
+      ],
+      "@environments/*": [
+        "environments/*"
+      ]
+    },
+    "outDir": "./dist/out-tsc",
+    "sourceMap": true,
+    "declaration": false,
+    "downlevelIteration": true,
+    "experimentalDecorators": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "importHelpers": true,
+    "target": "es2015",
+    "lib": [
+      "es2018",
+      "dom"
+    ]
+  },
+  "angularCompilerOptions": {
+    "fullTemplateTypeCheck": true,
+    "strictInjectionParameters": true
+  }
+}
