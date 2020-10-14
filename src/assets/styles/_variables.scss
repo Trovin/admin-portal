@@ -42,10 +42,22 @@ $sub-headline-color: #8492af;
 
 $headline-color: #2f50a8;
 
+
+/* sidebar */
+$sidebar-width-xs: 100%;
+$sidebar-width-md: 260px;
+$sidebar-width-lg: 320px;
+
+$wrapper-width-xs: 100%;
+$wrapper-width-md: calc(100% - 260px);
+$wrapper-width-lg: calc(100% - 320px);
+
+
 /* transitions */
 $transition: .4s;
 $short-transition: .3s;
 $long-transition: .6s;
+
 
 /* fonts */
 $base-fonts: 'Roboto', 'Helvetica', 'Open Sans', 'sans-serif', 'Arial';

@@ -102,35 +102,6 @@ div.mat-menu-content:not(:empty) {
   background-color: $theme-dark-color-items;
 }
 
-.mat-form-field-wrapper {
-  padding-bottom: 0;
-
-
-  &::before {
-    width: 100%;
-    background-color: $input-border;
-  }
-
-  &::after {
-    width: 0;
-    background-color: $theme-dark-color-items;
-  }
-
-  &::after, &::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    height: 2px;
-    display: block;
-    transition: $transition;
-  }
-
-  &:hover::after {
-    width: 100%;
-  }
-}
-
 /* material menu-item */
 button.mat-menu-item {
   text-align: center;
@@ -144,6 +115,14 @@ button.mat-menu-item {
 .mat-checkbox-layout .mat-checkbox-label {
   color: $form-item-color;
   font-size: 14px;
+}
+
+@media screen and (max-width: 960px) {
+
+  div.mat-sort-header-arrow {
+    right: 0;
+    position: absolute;
+  }
 }
 
 @media screen and (max-width: 620px) {

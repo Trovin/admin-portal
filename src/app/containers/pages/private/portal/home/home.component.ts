@@ -10,6 +10,8 @@ import { AuthService } from '@core/auth/auth.service';
 import { TaskService } from '@services/task-service/task.service';
 import { ComposeChartDataService } from '@services/compose-chart-service/compose-chart-data.service';
 
+import { PORTAL_USERS } from '@mocks/portal-users';
+
 import { IChartStats } from '@interfaces/chart-stats.interface';
 import { safeChartType } from '@enums/safe-chart-type.enum';
 
@@ -23,6 +25,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   user: User;
   tasks: Task[];
 
+  users = PORTAL_USERS;
   stream = new Subscription();
 
   chartStats: IChartStats = {

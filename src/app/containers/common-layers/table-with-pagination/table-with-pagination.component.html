@@ -1,0 +1,58 @@
+<div class="item-container">
+  <h2 class="item-card__title">Portal users</h2>
+
+  <form class="form" [formGroup]="filterForm" novalidate (ngSubmit)="onSubmit()">
+    <mat-form-field class="example-full-width">
+      <mat-label>Filter by email</mat-label>
+      <input matInput formControlName="filter">
+    </mat-form-field>
+    <button mat-flat-button color="primary" class="filter-btn" [disabled]="filterForm.invalid">Filter</button>
+  </form>
+
+  <div class="table-headline">Sort By:</div>
+
+  <div class="table-container" *ngIf="dataSource">
+    <mat-table [dataSource]="dataSource" matSort>
+
+      <ng-container matColumnDef="email">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Email </mat-header-cell>
+        <mat-cell *matCellDef="let row" data-label="email"> {{row.email}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="firstName">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> First name </mat-header-cell>
+        <mat-cell *matCellDef="let row" data-label="firstName"> {{row.firstName}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="lastName">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Last name </mat-header-cell>
+        <mat-cell *matCellDef="let row" data-label="lastName"> {{row.lastName}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="address">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Address </mat-header-cell>
+        <mat-cell *matCellDef="let row"  data-label="address"> {{row.address}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="phoneNumber">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Phone number </mat-header-cell>
+        <mat-cell *matCellDef="let row" data-label="phoneNumber" class="content-right"> {{row.phoneNumber}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="facebookLink">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Facebook link </mat-header-cell>
+        <mat-cell *matCellDef="let row" data-label="facebookLink"> {{row.facebookLink}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="registrationDate">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Registration date </mat-header-cell>
+        <mat-cell *matCellDef="let row" data-label="registrationDate" class="content-right"> {{row.registrationDate | date:'MM/dd/yyyy'}} </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10]"></mat-paginator>
+  </div>
+</div>
