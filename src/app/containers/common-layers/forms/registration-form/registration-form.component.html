@@ -87,9 +87,10 @@
 
   <app-select
     label="What is your country ?"
+    (selectedChange)="form['selectedCountry'].setValue($event)"
     [items]="countries"
-    [selectedItem]="selectedCountry"
-    (selectedChange)="form['selectedCountry'].setValue($event)">
+    [loading]="isLoading"
+    [selectedItem]="selectedCountry">
   </app-select>
 
   <app-validation-message [invalid]="showUpdateValidationError && form['isUpdateFormValuesValidator'].invalid">

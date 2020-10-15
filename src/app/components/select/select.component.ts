@@ -13,14 +13,14 @@ export class SelectComponent implements OnChanges {
 
   @Input() label: string;
   @Input() items: IFormSelectItem[];
+  @Input() loading: boolean;
   @Input() selectedItem: string;
 
+  viewLabel: string;
   selectedValue: string;
 
-  loading = true;
-
   ngOnChanges() {
-    this.loading = !this.items.length;
+    this.viewLabel = this.loading ? 'loading...' : this.label;
 
     if (this.selectedItem && this.items.length) {
       this.selectedValue = this.items.find(item => item.value === this.selectedItem).value;

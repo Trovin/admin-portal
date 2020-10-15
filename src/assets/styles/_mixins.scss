@@ -1,6 +1,7 @@
 @import 'variables';
 @import 'keyframes';
 
+
 @mixin task-decoration($size) {
   display: flex;
   align-items: center;
@@ -13,6 +14,18 @@
   font-size: 22px;
   color: $white-color;
   background-color: $theme-dark-color-items;
+}
+
+@mixin field-decoration() {
+  content: '';
+  transition: $transition;
+  display: block;
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: $theme-dark-color-items--hover;
 }
 
 @mixin box-shadow {

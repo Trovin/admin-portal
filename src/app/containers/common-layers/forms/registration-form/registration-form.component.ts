@@ -37,6 +37,7 @@ export class RegistrationFormComponent implements OnInit, OnDestroy {
   faIcon = iconClass;
   countries = [];
 
+  isLoading = true;
   isFocusForm = false;
 
   @HostListener('document:mousedown', ['$event'])
@@ -118,7 +119,10 @@ export class RegistrationFormComponent implements OnInit, OnDestroy {
 
   private getCountries() {
     this.stream = this.countriesService.getCountries()
-      .subscribe(countries => this.countries = countries);
+      .subscribe(countries => {
+        this.isLoading = false;
+        this.countries = countries;
+      });
   }
 
 }
