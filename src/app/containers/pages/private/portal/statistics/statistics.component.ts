@@ -3,12 +3,11 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 
 import { IChartStats } from '@interfaces/chart-stats.interface';
+import { safeChartType } from '@enums/safe-chart-type.enum';
+import { ComposeChartDataService } from '@services/compose-chart-service/compose-chart-data.service';
 
 import { Task } from '@models/task/task.dto';
-import { safeChartType } from '@enums/safe-chart-type.enum';
-
-import { TaskService } from '@services/task-service/task.service';
-import { ComposeChartDataService } from '@services/compose-chart-service/compose-chart-data.service';
+import { TaskRestService } from '@services/task-rest-service/task-rest.service';
 
 @Component({
   selector: 'app-statistics',
@@ -32,7 +31,7 @@ export class StatisticsComponent implements OnInit, OnDestroy {
   chartType = safeChartType;
 
   constructor(
-    private taskService: TaskService,
+    private taskService: TaskRestService,
     private chartDataService: ComposeChartDataService
   ) { }
 

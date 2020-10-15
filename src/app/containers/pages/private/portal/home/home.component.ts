@@ -6,8 +6,8 @@ import { Task } from '@models/task/task.dto';
 import { User } from '@models/user/input-user.dto';
 
 import { AuthService } from '@core/auth/auth.service';
+import { TaskRestService } from '@services/task-rest-service/task-rest.service';
 
-import { TaskService } from '@services/task-service/task.service';
 import { ComposeChartDataService } from '@services/compose-chart-service/compose-chart-data.service';
 
 import { PORTAL_USERS } from '@mocks/portal-users';
@@ -40,7 +40,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   constructor(
     private authService: AuthService,
-    private taskService: TaskService,
+    private taskService: TaskRestService,
     private chartDataService: ComposeChartDataService
   ) { }
 

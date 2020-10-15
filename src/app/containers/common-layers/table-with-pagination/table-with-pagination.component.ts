@@ -5,6 +5,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 
+import { Country } from '@enums/country-code.enum';
 import { IPortalUser } from '@interfaces/portal-user.inteface';
 
 @Component({
@@ -23,15 +24,15 @@ export class TableWithPaginationComponent implements OnChanges, AfterViewInit {
     'email',
     'firstName',
     'lastName',
-    'address',
-    'phoneNumber',
-    'facebookLink',
+    'country',
     'registrationDate'
   ];
 
   dataSource: MatTableDataSource<IPortalUser>;
 
   filterForm: FormGroup;
+
+  country = Country;
 
   onSubmit() {
     this.applyFilter(this.filterForm.value.filter);
@@ -46,8 +47,6 @@ export class TableWithPaginationComponent implements OnChanges, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    console.log(this.dataSource);
-
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
   }

@@ -89,7 +89,8 @@ export class FakeBackendInterceptor implements HttpInterceptor {
         email: user.email,
         password: user.password,
         jwtToken: generateJwtToken(),
-        selectedAnswer: user.selectedAnswer
+        selectedCountry: user.selectedCountry,
+        registrationDate: user.registrationDate
       });
     }
 
@@ -107,7 +108,8 @@ export class FakeBackendInterceptor implements HttpInterceptor {
         email: body.email,
         password: body.password,
         jwtToken: generateJwtToken(),
-        selectedAnswer: body.selectedAnswer
+        selectedCountry: body.selectedCountry,
+        registrationDate: body.registrationDate
       });
     }
 
@@ -126,7 +128,8 @@ export class FakeBackendInterceptor implements HttpInterceptor {
         email: user.email,
         password: user.password,
         jwtToken: generateJwtToken(),
-        selectedAnswer: user.selectedAnswer
+        selectedCountry: user.selectedCountry,
+        registrationDate: user.registrationDate
       });
     }
 
@@ -251,7 +254,8 @@ export class FakeBackendInterceptor implements HttpInterceptor {
         email: user.email,
         password: user.password,
         jwtToken: generateJwtToken(),
-        selectedAnswer: user.selectedAnswer
+        selectedCountry: user.selectedCountry,
+        registrationDate: user.registrationDate,
       });
     }
 

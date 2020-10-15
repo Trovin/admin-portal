@@ -29,19 +29,9 @@
         <mat-cell *matCellDef="let row" data-label="lastName"> {{row.lastName}} </mat-cell>
       </ng-container>
 
-      <ng-container matColumnDef="address">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> Address </mat-header-cell>
-        <mat-cell *matCellDef="let row"  data-label="address"> {{row.address}} </mat-cell>
-      </ng-container>
-
-      <ng-container matColumnDef="phoneNumber">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> Phone number </mat-header-cell>
-        <mat-cell *matCellDef="let row" data-label="phoneNumber" class="content-right"> {{row.phoneNumber}} </mat-cell>
-      </ng-container>
-
-      <ng-container matColumnDef="facebookLink">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> Facebook link </mat-header-cell>
-        <mat-cell *matCellDef="let row" data-label="facebookLink"> {{row.facebookLink}} </mat-cell>
+      <ng-container matColumnDef="country">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Country </mat-header-cell>
+        <mat-cell *matCellDef="let row"  data-label="address"> {{country[row.selectedCountry]}} </mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="registrationDate">

@@ -86,10 +86,10 @@
   </app-validation-message>
 
   <app-select
-    label="How did you hear about us ?"
-    [items]="selectAnswers"
-    [selectedItem]="selectedItemValue"
-    (selectedChange)="form['selectedAnswer'].setValue($event)">
+    label="What is your country ?"
+    [items]="countries"
+    [selectedItem]="selectedCountry"
+    (selectedChange)="form['selectedCountry'].setValue($event)">
   </app-select>
 
   <app-validation-message [invalid]="showUpdateValidationError && form['isUpdateFormValuesValidator'].invalid">

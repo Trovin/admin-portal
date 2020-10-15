@@ -3,5 +3,6 @@ export interface IAuthFormData {
   firstName?: string;
   lastName?: string;
   password: string;
-  selectedAnswer?: string;
+  selectedCountry?: string;
+  registrationDate?: Date;
 }

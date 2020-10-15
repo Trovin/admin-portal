@@ -5,5 +5,6 @@ export const testUser = {
   email: 'test@gmail.com',
   password: '@Test10',
   refreshTokens: [],
-  selectedAnswer: 'Web'
+  selectedCountry: 'CA',
+  registrationDate: Date.now()
 };

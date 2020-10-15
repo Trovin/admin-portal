@@ -53,25 +53,23 @@ div.mat-menu-content:not(:empty) {
   background-color: $theme-dark-color-items;
 }
 
-.header_light-theme {
-
-  button.user-menu {
-    background-color: $theme-light-color;
-  }
-
+.header_light-theme button.user-menu {
+  background-color: $theme-light-color;
 }
 
 /* material select */
 .mat-form-field-infix {
   border-top: 15px solid transparent;
+  padding: 0.25em 0 !important;
 }
 
 .mat-form-field-appearance-fill .mat-form-field-flex {
   font-size: 18px;
-  padding: 5px 5px 5px 40px !important;
+  padding: 5px 5px 5px 45px !important;
   background-color: $white-color;
   border-radius: 5px;
   position: relative;
+  border-bottom: 2px solid #f6f6f6;
 
   &:before {
     content: '\f05a';

@@ -37,13 +37,12 @@ export class AuthService {
       }));
   }
 
-  register(firstName: string, lastName: string, email: string, password: string, selectedAnswer: string): Observable<User> {
+  register(firstName: string, lastName: string, email: string, password: string, selectedCountry: string, registrationDate: Date): Observable<User> {
     return this.http.post<any>(
       `${environment.apiUrl}/users/register`,
-      { firstName, lastName, email, password, selectedAnswer },
+      { firstName, lastName, email, password, selectedCountry, registrationDate },
       { withCredentials: true }
-      )
-      .pipe(map(user => {
+      ).pipe(map(user => {
         this.userSubject.next(user);
         this.startRefreshTokenTimer();
         localStorage.setItem('jwt-refresh-token-users', JSON.stringify(user));
@@ -51,13 +50,12 @@ export class AuthService {
       }));
   }
 
-  update(id: number, firstName: string, lastName: string, email: string, password: string, selectedAnswer: string): any {
+  update(id: number, firstName: string, lastName: string, email: string, password: string, selectedCountry: string, registrationDate: Date): any {
     return this.http.put<any>(
       `${environment.apiUrl}/users/update`,
-      { id, firstName, lastName, email, password, selectedAnswer },
+      { id, firstName, lastName, email, password, selectedCountry, registrationDate },
       { withCredentials: true }
-    )
-      .pipe(map(user => {
+    ).pipe(map(user => {
         this.userSubject.next(user);
         this.startRefreshTokenTimer();
         localStorage.setItem('jwt-refresh-token-users', JSON.stringify(user));

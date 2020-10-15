@@ -12,6 +12,11 @@ export const MAIN_MENU_ITEMS: IMenuItem[] = [
     iconClass: 'fa fa-area-chart'
   },
   {
+    routing: 'users',
+    viewValue: 'Portal users',
+    iconClass: 'fa fa-user'
+  },
+  {
     routing: 'statistics',
     viewValue: 'statistics',
     iconClass: 'fa fa-line-chart'

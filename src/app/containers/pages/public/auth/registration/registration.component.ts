@@ -21,7 +21,7 @@ export class RegistrationComponent implements OnDestroy {
   ) { }
 
   register(data) {
-    this.stream = this.authService.register(data.firstName, data.lastName, data.email, data.password, data.selectedAnswer)
+    this.stream = this.authService.register(data.firstName, data.lastName, data.email, data.password, data.selectedCountry, data.registrationDate)
       .subscribe(() => this.router.navigate(['portal/home']));
   }
 

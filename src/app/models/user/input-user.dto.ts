@@ -5,7 +5,8 @@ export class User {
   jwtToken: string;
   lastName: string;
   firstName: string;
-  selectedAnswer: string;
+  selectedCountry: string;
+  registrationDate: Date;
 
   constructor(data?: User) {
     if (data) {
@@ -15,7 +16,8 @@ export class User {
       this.jwtToken = data.jwtToken;
       this.lastName = data.lastName;
       this.firstName = data.firstName;
-      this.selectedAnswer = data.selectedAnswer;
+      this.selectedCountry = data.selectedCountry;
+      this.registrationDate = data.registrationDate;
     }
   }
 }

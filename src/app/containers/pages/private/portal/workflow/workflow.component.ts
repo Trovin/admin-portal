@@ -1,22 +1,19 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 
-import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
-import { Breakpoint } from '@enums/breakpoint.enum';
-
 import { switchMap } from 'rxjs/operators';
 import { Subscription } from 'rxjs';
 
+import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
+import { TaskRestService } from '@services/task-rest-service/task-rest.service';
+
 import { Task } from '@models/task/task.dto';
-import { TaskService } from '@services/task-service/task.service';
 
 import { IUpdateListData } from '@interfaces/update-list-data.interface';
 import { ITaskMenuAction } from '@interfaces/task-menu-action.interface';
 
 import { taskStatusType } from '@enums/task-status-type.enum';
 import { taskCategoryList } from '@enums/task-category-list.enum';
-
-import { AppSettingsService } from '@services/app-settings-service/app-settings.service';
 
 import { TaskModalFormComponent } from '@containers/common-layers/forms/task-modal-from/task-modal-form.component';
 
@@ -52,7 +49,7 @@ export class WorkflowComponent implements OnInit, OnDestroy {
 
   constructor(
     public dialog: MatDialog,
-    private taskService: TaskService
+    private taskService: TaskRestService
   ) { }
 
   ngOnInit() {

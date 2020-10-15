@@ -17,8 +17,12 @@ export class SelectComponent implements OnChanges {
 
   selectedValue: string;
 
+  loading = true;
+
   ngOnChanges() {
-    if (this.selectedItem) {
+    this.loading = !this.items.length;
+
+    if (this.selectedItem && this.items.length) {
       this.selectedValue = this.items.find(item => item.value === this.selectedItem).value;
       this.selectedChange.emit(this.selectedValue);
     }

@@ -11,7 +11,7 @@ import { IUpdateListData, IListsData } from '@interfaces/update-list-data.interf
 @Injectable({
   providedIn: 'root'
 })
-export class TaskService {
+export class TaskRestService {
 
   constructor(private http: HttpClient) { }
 

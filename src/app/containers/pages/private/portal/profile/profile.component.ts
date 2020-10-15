@@ -25,9 +25,15 @@ export class ProfileComponent implements OnInit {
   }
 
   update(data: IAuthFormData) {
-
-    this.authService.update(this.user.id, data.firstName, data.lastName, data.email, data.password, data.selectedAnswer)
-      .subscribe(user => this.user = user);
+    this.authService.update(
+      this.user.id,
+      data.firstName,
+      data.lastName,
+      data.email,
+      data.password,
+      data.selectedCountry,
+      data.registrationDate
+    ).subscribe(user => this.user = user);
   }
 
 }

@@ -22,6 +22,10 @@ export const portalRoutes: Routes = [
         loadChildren: () => import('@containers/pages/private/portal/workflow/workflow.module').then(m => m.WorkflowModule)
       },
       {
+        path: 'users',
+        loadChildren: () => import('@containers/pages/private/portal/users/users.module').then(m => m.UsersModule)
+      },
+      {
         path: 'statistics',
         loadChildren: () => import('@containers/pages/private/portal/statistics/statistics.module').then(m => m.StatisticsModule)
       },
