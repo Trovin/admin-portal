@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 
 import { AuthService } from '@core/auth/auth.service';
 import { Subscription } from 'rxjs';
+
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 import { User } from '@models/user/input-user.dto';
 
@@ -12,20 +14,27 @@ import { IAuthFormData } from '@interfaces/auth-form-data.interface';
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.scss']
 })
-export class ProfileComponent implements OnInit {
+export class ProfileComponent implements OnInit, OnDestroy {
 
   user: User;
 
   stream = new Subscription();
 
-  constructor(private authService: AuthService) { }
+  constructor(
+    private snackBar: MatSnackBar,
+    private authService: AuthService
+  ) { }
 
   ngOnInit() {
     this.user = this.authService.userValue;
   }
 
+  ngOnDestroy() {
+    this.stream.unsubscribe();
+  }
+
   update(data: IAuthFormData) {
-    this.authService.update(
+    this.stream = this.authService.update(
       this.user.id,
       data.firstName,
       data.lastName,
@@ -33,7 +42,15 @@ export class ProfileComponent implements OnInit {
       data.password,
       data.selectedCountry,
       data.registrationDate
-    ).subscribe(user => this.user = user);
+    ).subscribe(user => {
+      this.snackBar.open('Update profile data is completed', 'Ok', {
+        duration: 4000,
+        panelClass: ['snackbar'],
+        horizontalPosition: 'end'
+      });
+
+      this.user = user;
+    });
   }
 
 }
