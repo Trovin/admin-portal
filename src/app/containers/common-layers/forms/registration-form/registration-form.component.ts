@@ -1,4 +1,15 @@
-import { Component, OnInit, Output, EventEmitter, Input, HostListener, ViewChild, ElementRef, OnDestroy } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Output,
+  EventEmitter,
+  Input,
+  HostListener,
+  ViewChild,
+  ElementRef,
+  OnDestroy,
+  OnChanges
+} from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 import { Subscription } from 'rxjs';
@@ -16,7 +27,7 @@ import { CountriesRestService } from '@services/countries-rest-service/countries
   selector: 'app-registration-form',
   templateUrl: './registration-form.component.html'
 })
-export class RegistrationFormComponent implements OnInit, OnDestroy {
+export class RegistrationFormComponent implements OnChanges, OnInit, OnDestroy {
 
   @ViewChild('formElement') formRef: ElementRef;
 
@@ -50,6 +61,10 @@ export class RegistrationFormComponent implements OnInit, OnDestroy {
     private countriesService: CountriesRestService
   ) { }
 
+  ngOnChanges() {
+    this.initForm();
+  }
+
   ngOnInit() {
     this.initForm();
     this.getCountries();
@@ -77,8 +92,7 @@ export class RegistrationFormComponent implements OnInit, OnDestroy {
       registrationDate: new Date()
     });
 
-    this.isFocusForm = true;
-    this.registerForm.controls.isUpdateFormValuesValidator.setErrors({ mustContainUpdateValues: true });
+    this.isFocusForm = false;
   }
 
   private initForm() {
