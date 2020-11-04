@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ChangeDetectorRef } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 
 import { switchMap } from 'rxjs/operators';
@@ -49,6 +49,7 @@ export class WorkflowComponent implements OnInit, OnDestroy {
 
   constructor(
     public dialog: MatDialog,
+    private cdRef: ChangeDetectorRef,
     private taskService: TaskRestService
   ) { }
 
@@ -147,6 +148,7 @@ export class WorkflowComponent implements OnInit, OnDestroy {
 
   private changeAnimationState() {
     setTimeout(() => this.animationState = true, 0);
+    this.cdRef.detectChanges();
   }
 
   private sortTasksByList(tasks: IUpdateListData) {
