@@ -12,7 +12,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { SelectModule } from '@components/select/select.module';
 import { FormFieldModule } from '@components/form-field/form-field.module';
 import { ValidationMessageModule } from '@components/validation-message/validation-message.module';
-import { TaskModalFormComponent } from '@containers/common-layers/forms/task-modal-from/task-modal-form.component';
+import { TaskModalFormComponent } from '@containers/common-layers/forms/task-modal-form/task-modal-form.component';
 
 @NgModule({
   declarations: [TaskModalFormComponent],

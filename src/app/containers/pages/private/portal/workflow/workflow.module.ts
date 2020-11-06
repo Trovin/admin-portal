@@ -8,7 +8,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
-import { TaskModalFormModule } from '@containers/common-layers/forms/task-modal-from/task-modal-form.module';
+import { TaskModalFormModule } from '@containers/common-layers/forms/task-modal-form/task-modal-form.module';
 import { TaskStatusMenuModule } from '@components/task-status-menu/task-status-menu.module';
 import { WorkflowContentModule } from '@components/workflow-content/workflow-content.module';
 

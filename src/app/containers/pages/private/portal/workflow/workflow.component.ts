@@ -15,7 +15,7 @@ import { ITaskMenuAction } from '@interfaces/task-menu-action.interface';
 import { taskStatusType } from '@enums/task-status-type.enum';
 import { taskCategoryList } from '@enums/task-category-list.enum';
 
-import { TaskModalFormComponent } from '@containers/common-layers/forms/task-modal-from/task-modal-form.component';
+import { TaskModalFormComponent } from '@containers/common-layers/forms/task-modal-form/task-modal-form.component';
 
 import { moveFromBottomAnimation } from '@modules/shared/animations/move-from-bottom.animation';
 
