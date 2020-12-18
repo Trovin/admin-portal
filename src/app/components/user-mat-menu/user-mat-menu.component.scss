@@ -31,10 +31,6 @@
   text-align: center;
   color: $white-color;
   font-weight: bold;
-  background-color: $theme-light-color;
-
-  &_dark {
-    background-color: $theme-dark-color;
-  }
+  background-color: $static-theme-color;
 }
 

@@ -1,8 +1,4 @@
-<aside
-  class="sidebar"
-  [ngStyle]="{ 'left': sidebar ? '0' : '-100%' }"
-  [ngClass]="darkMode ? 'sidebar_dark-theme' : 'sidebar_light-theme'">
-
+<aside class="sidebar" [ngStyle]="{ 'left': sidebar ? '0' : '-100%' }">
   <div class="sidebar-top">
     <app-logo></app-logo>
     <app-toggled-menu class="sidebar-toggler" [isActive]="sidebar" (click)="setSidebarState($event)"></app-toggled-menu>
@@ -25,7 +21,7 @@
     <mat-slide-toggle
       [checked]="isDarkMode"
       (change)="changeColorMode($event)">
-      {{darkMode ? 'Dark' : 'Light'}} theme
+      {{isDarkMode ? 'Dark' : 'Light'}} theme
     </mat-slide-toggle>
   </div>
 </aside>

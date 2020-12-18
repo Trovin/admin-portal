@@ -25,14 +25,6 @@ export class ProfileComponent implements OnInit, OnDestroy {
     private authService: AuthService
   ) { }
 
-  ngOnInit() {
-    this.user = this.authService.userValue;
-  }
-
-  ngOnDestroy() {
-    this.stream.unsubscribe();
-  }
-
   update(data: IAuthFormData) {
     this.stream = this.authService.update(
       this.user.id,
@@ -43,7 +35,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
       data.selectedCountry,
       data.registrationDate
     ).subscribe(user => {
-      this.snackBar.open('Update profile data is completed', 'Ok', {
+      this.snackBar.open('User profile is updated', 'Ok', {
         duration: 4000,
         panelClass: ['snackbar'],
         horizontalPosition: 'end'
@@ -51,6 +43,14 @@ export class ProfileComponent implements OnInit, OnDestroy {
 
       this.user = user;
     });
+  }
+
+  ngOnInit() {
+    this.user = this.authService.userValue;
+  }
+
+  ngOnDestroy() {
+    this.stream.unsubscribe();
   }
 
 }

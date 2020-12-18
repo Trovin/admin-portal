@@ -13,6 +13,7 @@
   position: relative;
   transition: $transition;
   flex-direction: column;
+  background-color: $wrapper-layout-color;
 }
 
 .wrapper_with-offset {

@@ -1,17 +1,8 @@
 <main class="portal">
-  <app-sidebar
-    [darkMode]="isDarkMode"
-    (toggleColorMode)="setColorMode($event)">
-  </app-sidebar>
+  <app-sidebar (toggleColorMode)="setColorMode($event)"></app-sidebar>
 
-  <div
-    class="wrapper"
-    [ngClass]="{ 'wrapper_with-offset': sidebar }">
-    <app-header
-      [darkMode]="isDarkMode"
-      (toggleSidebarState)="setSidebarState($event)">
-    </app-header>
-
+  <div class="wrapper" [ngClass]="{ 'wrapper_with-offset': sidebar }">
+    <app-header (toggleSidebarState)="setSidebarState($event)"></app-header>
     <div class="content-wrapper">
       <router-outlet></router-outlet>
     </div>

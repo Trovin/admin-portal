@@ -1,4 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import { AppSettingsService } from '@services/app-settings-service/app-settings.service';
 
 import { Subscription } from 'rxjs';
 
@@ -26,7 +27,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   tasks: Task[];
 
   users = PORTAL_USERS;
-  stream = new Subscription();
+  stream: Subscription;
 
   chartStats: IChartStats = {
     text: '',
@@ -41,6 +42,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   constructor(
     private authService: AuthService,
     private taskService: TaskRestService,
+    private settingsService: AppSettingsService,
     private chartDataService: ComposeChartDataService
   ) { }
 

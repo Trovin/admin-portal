@@ -17,7 +17,12 @@ $border-light: #ccc;
 
 $background: #f6f7fa;
 
-$theme-color: #0e1a35;
+$static-theme-color: #0e1a35;
+
+$theme-color: var(--theme-color);
+$theme-info-color: var(--theme-info-color);
+$nav-item-color: var(--nav-item-color);
+$wrapper-layout-color: var(--wrapper-layout-color);
 
 $theme-dark-color: #113593;
 $theme-dark-color-items: #5584ff;
@@ -26,8 +31,6 @@ $theme-dark-color-items--hover: #5584ff;
 $theme-light-color: #4c50c6;
 $theme-light-color-items: #4f39d7;
 $theme-light-color-items--hover: #5584ff;
-
-$nav-item-color: #122143;
 
 $decor-item--hover: #3b56db;
 $decor-item--active: #5584ff;

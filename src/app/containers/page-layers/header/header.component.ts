@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter, OnDestroy, OnInit } from '@angular/core';
+import { Component, Output, EventEmitter, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 
@@ -13,8 +13,6 @@ import { AppSettingsService } from '@services/app-settings-service/app-settings.
 export class HeaderComponent implements OnInit, OnDestroy {
 
   @Output() toggleSidebarState = new EventEmitter<boolean>();
-
-  @Input() darkMode: boolean;
 
   stream = new Subscription();
 

@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter, OnInit, OnDestroy, Renderer2 } from '@angular/core';
+import { Component, Output, EventEmitter, OnInit, OnDestroy, Renderer2 } from '@angular/core';
 
 import { Breakpoint } from '@enums/breakpoint.enum';
 
@@ -16,8 +16,6 @@ import { AppSettingsService } from '@services/app-settings-service/app-settings.
 export class SidebarComponent implements OnInit, OnDestroy {
 
   @Output() toggleColorMode = new EventEmitter<boolean>();
-
-  @Input() darkMode: boolean;
 
   sidebar: boolean;
   smallScreen: boolean;
@@ -43,7 +41,10 @@ export class SidebarComponent implements OnInit, OnDestroy {
     const sidebarSettingStream = this.settingsService.sidebar
       .subscribe(state => {
         this.sidebar = state;
-        this.changeBodyClass();
+
+        if (this.smallScreen) {
+          this.changeBodyClass();
+        }
       });
 
     this.stream.add(breakpoint);
@@ -70,11 +71,7 @@ export class SidebarComponent implements OnInit, OnDestroy {
   }
 
   private changeBodyClass() {
-    if (this.smallScreen && this.sidebar) {
-      this.render.addClass(document.body, 'hidden-content');
-    } else {
-      this.render.removeClass(document.body, 'hidden-content');
-    }
+    this.sidebar ? this.render.addClass(document.body, 'hidden-content') : this.render.removeClass(document.body, 'hidden-content');
   }
 
 }

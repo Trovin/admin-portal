@@ -6,11 +6,11 @@
 </div>
 
 <mat-menu #menu="matMenu">
-  <a mat-menu-item [routerLink]="['profile']" [ngClass]="{ 'mat-menu-item_dark': isDarkMode}">
+  <a mat-menu-item [routerLink]="['profile']">
     <i class="fa fa-cog" aria-hidden="true"></i> Profile
   </a>
 
-  <span mat-menu-item (click)="userLogout.emit(true)" [ngClass]="{ 'mat-menu-item_dark': isDarkMode}">
+  <span mat-menu-item (click)="userLogout.emit(true)">
     <i class="fa fa-sign-out" aria-hidden="true"></i> Logout
   </span>
 </mat-menu>

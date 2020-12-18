@@ -1,6 +1,5 @@
 <header
-  class="header inner-wrapper"
-  [ngClass]="{ 'header_light-theme': !darkMode }">
+  class="header inner-wrapper">
   <app-toggled-menu [isActive]="sidebar" (click)="changeSidebarState($event)"></app-toggled-menu>
-  <app-user-mat-menu [isDarkMode]="darkMode" (userLogout)="logout()"></app-user-mat-menu>
+  <app-user-mat-menu (userLogout)="logout()"></app-user-mat-menu>
 </header>

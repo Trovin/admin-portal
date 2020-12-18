@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter, Input } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-user-mat-menu',
@@ -8,7 +8,5 @@ import { Component, Output, EventEmitter, Input } from '@angular/core';
 export class UserMatMenuComponent {
 
   @Output() userLogout = new EventEmitter<boolean>();
-
-  @Input() isDarkMode: boolean;
 
 }

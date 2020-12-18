@@ -1,9 +1,16 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { DomSanitizer, SafeStyle } from '@angular/platform-browser';
+import { SafeStyle } from '@angular/platform-browser';
 
 import { Subscription } from 'rxjs';
 
 import { AppSettingsService } from '@services/app-settings-service/app-settings.service';
+
+interface IColorsSetting {
+  themeColor: string;
+  navItemColor: string;
+  themeInfoColor: string;
+  wrapperLayoutColor: string;
+}
 
 @Component({
   selector: 'app-portal',
@@ -14,18 +21,39 @@ export class PortalComponent implements OnInit, OnDestroy {
 
   width: SafeStyle;
   sidebar: boolean;
-  isDarkMode: boolean;
 
   stream = new Subscription();
 
-  constructor(private settingsService: AppSettingsService) { }
+  darkThemeColors: IColorsSetting = {
+    themeColor: '#0e1a35',
+    navItemColor: '#122143',
+    themeInfoColor: '#FFFFFF',
+    wrapperLayoutColor: '#FFFFFF'
+  };
+
+  lightThemeColors: IColorsSetting = {
+    themeColor: '#666ad6',
+    navItemColor: '#4f39d7',
+    themeInfoColor: '#FFFFFF',
+    wrapperLayoutColor: '#FFFFFF'
+  };
+
+  constructor(private settingsService: AppSettingsService) {
+    this.changeThemeColor(this.darkThemeColors);
+  }
 
   ngOnInit() {
-    const modeSetting = this.settingsService.isDarkMode.subscribe(state => this.isDarkMode = state);
     const sidebarSetting = this.settingsService.sidebar.subscribe(state => this.sidebar = state);
+    const modeSetting = this.settingsService.isDarkMode.subscribe(state => {
+      state ? this.changeThemeColor(this.darkThemeColors) : this.changeThemeColor(this.lightThemeColors);
+    });
 
     this.stream.add(modeSetting);
     this.stream.add(sidebarSetting);
+  }
+
+  ngOnDestroy() {
+    this.stream.unsubscribe();
   }
 
   setColorMode(state: boolean) {
@@ -36,8 +64,11 @@ export class PortalComponent implements OnInit, OnDestroy {
     this.settingsService.sidebar.next(state);
   }
 
-  ngOnDestroy() {
-    this.stream.unsubscribe();
+  private changeThemeColor(colors: IColorsSetting) {
+    document.documentElement.style.setProperty('--theme-color', colors.themeColor);
+    document.documentElement.style.setProperty('--nav-item-color', colors.navItemColor);
+    document.documentElement.style.setProperty('--theme-info-color', colors.themeInfoColor);
+    document.documentElement.style.setProperty('--wrapper-layout-color', colors.wrapperLayoutColor);
   }
 
 }
