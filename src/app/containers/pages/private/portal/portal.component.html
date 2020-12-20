@@ -1,6 +1,10 @@
 <main class="portal">
   <app-sidebar (toggleColorMode)="setColorMode($event)"></app-sidebar>
 
+  <div class="background">
+    <span *ngFor="let item of decorationItems"></span>
+  </div>
+
   <div class="wrapper" [ngClass]="{ 'wrapper_with-offset': sidebar }">
     <app-header (toggleSidebarState)="setSidebarState($event)"></app-header>
     <div class="content-wrapper">

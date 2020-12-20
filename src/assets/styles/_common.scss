@@ -1,5 +1,6 @@
 @import 'mixins';
 @import 'variables';
+@import 'keyframes';
 
 * {
   outline: none;
@@ -7,7 +8,6 @@
   font-weight: 400;
   font-family: $base-fonts;
 }
-
 
 .flex {
   display: flex;
@@ -18,7 +18,7 @@
 }
 
 .theme-text {
-  color: $theme-dark-color-items;
+  color: $static-theme-item-color;
 }
 
 .snackbar {
@@ -55,13 +55,12 @@
 h2.headline, .headline {
   display: flex;
   align-items: center;
-  color: $headline-color;
-  font-size: 26px;
-  line-height: 32px;
-  margin-bottom: 25px;
-  font-weight: 400;
   justify-content: space-between;
-  text-transform: uppercase;
+  color: $headline-color;
+  font-size: 36px;
+  line-height: 140%;
+  font-weight: 500;
+  margin-bottom: 20px;
 }
 
 .headline-decor {
@@ -74,6 +73,7 @@ h2.headline, .headline {
 
 .item-container, .item-card {
   padding: 30px;
+  opacity: 0.9;
   position: relative;
   margin-bottom: 20px;
   -webkit-box-shadow: 0 0 18px -8px rgba(222,222,222,1);
@@ -81,35 +81,57 @@ h2.headline, .headline {
   box-shadow: 0 0 18px -8px rgba(222,222,222,1);
   transition: $transition;
   background-color: $white-color;
-
-  &:before {
-    width: 0;
-    height: 2px;
-    transition: $transition;
-    @include decoration-element;
-    background: rgb(2,0,36);
-    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(175,188,254,1) 0%, rgba(47,80,168,1) 100%);
-  }
 }
 
 .item-container:hover, .item-card:hover {
   -webkit-box-shadow: 0 0 18px -4px rgba(222,222,222,1);
   -moz-box-shadow: 0 0 18px -4px rgba(222,222,222,1);
   box-shadow: 0 0 18px -4px rgba(222,222,222,1);
-
-  &::before {
-    width: 100%;
-  }
 }
 
 h2.item-card__title, .item-card__title {
   display: flex;
   align-items: center;
-  font-size: 32px;
-  line-height: 38px;
+  font-size: 26px;
+  line-height: 32px;
   color: $sub-headline-color;
   font-weight: bold;
   margin-bottom: 50px;
+}
+
+/* animated background */
+.background {
+  width: 100vw;
+  height: 100vh;
+  background: $white-color;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+}
+
+.background span {
+  width: $particleSize;
+  height: $particleSize;
+  border-radius: $particleSize;
+  backface-visibility: hidden;
+  position: absolute;
+  opacity: .9;
+  animation: move $animationDuration linear infinite;
+
+  @for $i from 1 through $amount {
+    &:nth-child(#{$i}) {
+      color: nth($colors, random(length($colors)));
+      top: random(100) * 1%;
+      left: random(100) * 1%;
+      animation-duration: (random($animationDuration * 30) / 10) * 1s + 10s;
+      animation-delay: random(($animationDuration + 10s) * 10) / 10 * -1s;
+      transform-origin: (random(50) - 25) * 1vw (random(50) - 25) * 1vh;
+      $blurRadius: (random() + 0.5) * $particleSize * 0.5;
+      $x: if(random() > 0.5, -1, 1);
+      box-shadow: ($particleSize * 2 * $x) 0 $blurRadius currentColor;
+    }
+  }
 }
 
 /* form */
@@ -132,6 +154,10 @@ h2.item-card__title, .item-card__title {
 
 :-ms-input-placeholder {
   color: $placeholder;
+}
+
+input, select {
+  background-color: transparent;
 }
 
 input, label, textarea {

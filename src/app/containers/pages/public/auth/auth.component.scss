@@ -74,7 +74,7 @@
       width: 0;
       height: 10px;
       transition: $long-transition;
-      background-color: $theme-dark-color-items;
+      background-color: $default-theme;
     }
 
     &_left::after {

@@ -28,19 +28,7 @@ $custom-typography: mat-typography-config(
 .hamburger.is-active .hamburger-inner,
 .hamburger.is-active .hamburger-inner::before,
 .hamburger.is-active .hamburger-inner::after {
-  background-color: $theme-dark-color;
-}
-
-.header_light-theme {
-
-  .hamburger-inner,
-  .hamburger-inner::before,
-  .hamburger-inner::after,
-  .hamburger.is-active .hamburger-inner,
-  .hamburger.is-active .hamburger-inner::before,
-  .hamburger.is-active .hamburger-inner::after {
-    background-color: $theme-light-color;
-  }
+  background-color: $headline-color;
 }
 
 /* mat-menu */
@@ -51,11 +39,7 @@ $custom-typography: mat-typography-config(
 div.mat-menu-content:not(:empty) {
   color: $white-color;
   padding: 0;
-  background-color: $theme-dark-color-items;
-}
-
-.header_light-theme button.user-menu {
-  background-color: $theme-light-color;
+  background-color: $headline-color;
 }
 
 /* material select */
@@ -66,7 +50,7 @@ div.mat-menu-content:not(:empty) {
 
 .mat-form-field-appearance-fill .mat-form-field-flex {
   font-size: 18px;
-  padding: 5px 5px 5px 45px !important;
+  padding: 5px 5px 5px 55px !important;
   background-color: $white-color;
   border-radius: 5px;
   position: relative;
@@ -85,9 +69,9 @@ div.mat-menu-content:not(:empty) {
     font-family: FontAwesome;
     display: block;
     font-size: 18px;
-    color: $theme-dark-color-items;
+    color: $theme-item-color;
     position: absolute;
-    left: 10px;
+    left: 20px;
     top: 15px;
   }
 }
@@ -102,11 +86,11 @@ div.mat-menu-content:not(:empty) {
 
 .mat-select-panel .mat-option.mat-selected:not(.mat-option-multiple) {
   color: $white-color;
-  background: $theme-dark-color-items;
+  background: $theme-item-color;
 }
 
 .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background, .mat-checkbox-checked.mat-accent .mat-checkbox-background {
-  background-color: $theme-dark-color-items;
+  background-color: $theme-item-color;
 }
 
 /* material menu-item */

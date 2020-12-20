@@ -30,7 +30,7 @@ input {
 }
 
 .mat-cell {
-  padding: 5px;
+  padding: 10px;
   display: block;
   overflow: hidden;
   white-space: nowrap;
@@ -134,6 +134,6 @@ mat-cell:last-of-type, mat-header-cell:last-of-type, mat-footer-cell:last-of-typ
 
   .filter-btn {
     width: 100%;
-    margin: 0;
+    margin: 0 0 10px;
   }
 }

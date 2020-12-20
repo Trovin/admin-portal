@@ -3,14 +3,10 @@ import { SafeStyle } from '@angular/platform-browser';
 
 import { Subscription } from 'rxjs';
 
-import { AppSettingsService } from '@services/app-settings-service/app-settings.service';
+import { IColorsSetting } from '@interfaces/color-settings.interface';
 
-interface IColorsSetting {
-  themeColor: string;
-  navItemColor: string;
-  themeInfoColor: string;
-  wrapperLayoutColor: string;
-}
+import { AppSettingsService } from '@services/app-settings-service/app-settings.service';
+import { darkThemeColors, lightThemeColors } from '@modules/shared/helpers';
 
 @Component({
   selector: 'app-portal',
@@ -24,28 +20,20 @@ export class PortalComponent implements OnInit, OnDestroy {
 
   stream = new Subscription();
 
-  darkThemeColors: IColorsSetting = {
-    themeColor: '#0e1a35',
-    navItemColor: '#122143',
-    themeInfoColor: '#FFFFFF',
-    wrapperLayoutColor: '#FFFFFF'
-  };
+  decorationItems = [];
 
-  lightThemeColors: IColorsSetting = {
-    themeColor: '#666ad6',
-    navItemColor: '#4f39d7',
-    themeInfoColor: '#FFFFFF',
-    wrapperLayoutColor: '#FFFFFF'
-  };
+  darkTheme = darkThemeColors;
+  lightTheme = lightThemeColors;
 
   constructor(private settingsService: AppSettingsService) {
-    this.changeThemeColor(this.darkThemeColors);
+    this.decorationItems.length = 15;
+    this.changeThemeColor(this.darkTheme);
   }
 
   ngOnInit() {
     const sidebarSetting = this.settingsService.sidebar.subscribe(state => this.sidebar = state);
     const modeSetting = this.settingsService.isDarkMode.subscribe(state => {
-      state ? this.changeThemeColor(this.darkThemeColors) : this.changeThemeColor(this.lightThemeColors);
+      state ? this.changeThemeColor(this.darkTheme) : this.changeThemeColor(this.lightTheme);
     });
 
     this.stream.add(modeSetting);
@@ -66,7 +54,9 @@ export class PortalComponent implements OnInit, OnDestroy {
 
   private changeThemeColor(colors: IColorsSetting) {
     document.documentElement.style.setProperty('--theme-color', colors.themeColor);
+    document.documentElement.style.setProperty('--headline-color', colors.headlineColor);
     document.documentElement.style.setProperty('--nav-item-color', colors.navItemColor);
+    document.documentElement.style.setProperty('--theme-item-color', colors.themeItemColor);
     document.documentElement.style.setProperty('--theme-info-color', colors.themeInfoColor);
     document.documentElement.style.setProperty('--wrapper-layout-color', colors.wrapperLayoutColor);
   }

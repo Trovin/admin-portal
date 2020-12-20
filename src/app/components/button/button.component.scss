@@ -10,7 +10,7 @@ button {
   padding: 20px 60px;
   width: 385px;
   max-width: 100%;
-  background-color: $theme-dark-color-items;
+  background-color: $theme-item-color;
   color: $white-color;
   font-weight: bold;
   font-size: 24px;
@@ -79,6 +79,10 @@ button {
 :host-context(.btn-host_disabled) .btn {
   background-color: $btn--disabled;
   pointer-events: none;
+}
+
+:host-context(.auth-section) .btn {
+  background-color: $default-theme;
 }
 
 @media screen and (max-width: 768px) {

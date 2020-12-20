@@ -13,7 +13,7 @@
   border-radius: 50%;
   font-size: 22px;
   color: $white-color;
-  background-color: $theme-dark-color-items;
+  background-color: $theme-item-color;
 }
 
 @mixin field-decoration() {
@@ -25,7 +25,7 @@
   left: 0;
   width: 0;
   height: 2px;
-  background-color: $theme-dark-color-items--hover;
+  background-color: $theme-item-color--hover;
 }
 
 @mixin box-shadow {
@@ -55,5 +55,5 @@
 }
 
 @mixin fade-in {
-  animation: fadeIn $long-transition linear;
+  animation: fadeIn $transition linear;
 }

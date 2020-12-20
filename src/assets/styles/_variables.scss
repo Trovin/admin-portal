@@ -2,6 +2,8 @@
 $white-color: #fff;
 $black-color: #000;
 
+$default-theme: #5584ff;
+
 $error: #ff7373;
 $complete: #79ed49;
 
@@ -18,15 +20,18 @@ $border-light: #ccc;
 $background: #f6f7fa;
 
 $static-theme-color: #0e1a35;
+$static-theme-item-color: #4f6fb2;
 
 $theme-color: var(--theme-color);
+$headline-color: var(--headline-color);
 $theme-info-color: var(--theme-info-color);
 $nav-item-color: var(--nav-item-color);
 $wrapper-layout-color: var(--wrapper-layout-color);
 
 $theme-dark-color: #113593;
-$theme-dark-color-items: #5584ff;
-$theme-dark-color-items--hover: #5584ff;
+
+$theme-item-color: var(--theme-item-color);
+$theme-item-color--hover: #5584ff;
 
 $theme-light-color: #4c50c6;
 $theme-light-color-items: #4f39d7;
@@ -43,8 +48,19 @@ $text-shadow: #b1c0e2;
 $text-color: #767bb0;
 $sub-headline-color: #8492af;
 
-$headline-color: #2f50a8;
+/* background animation */
+$color1: #583C87;
+$color2: #5974bb;
+$color3: #5584ff;
+$colors: (
+  $color1,
+  $color2,
+  $color3
+);
 
+$amount: 20;
+$particleSize: 6vmin;
+$animationDuration: 45s;
 
 /* sidebar */
 $sidebar-width-xs: 100%;

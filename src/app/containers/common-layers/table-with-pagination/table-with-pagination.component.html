@@ -1,12 +1,11 @@
 <div class="item-container">
-  <h2 class="item-card__title">Portal users</h2>
-
-  <form class="form" [formGroup]="filterForm" novalidate (ngSubmit)="onSubmit()">
+  <form class="form" [formGroup]="filterForm" novalidate>
     <mat-form-field class="example-full-width">
       <mat-label>Filter by email</mat-label>
       <input matInput formControlName="filter">
     </mat-form-field>
-    <button mat-flat-button color="primary" class="filter-btn" [disabled]="filterForm.invalid">Filter</button>
+    <button (click)="applyFilter()" mat-flat-button color="primary" class="filter-btn" [disabled]="filterForm.invalid">Apply</button>
+    <button (click)="resetFilter()" mat-flat-button color="primary" class="filter-btn">Reset</button>
   </form>
 
   <div class="table-headline">Sort By:</div>

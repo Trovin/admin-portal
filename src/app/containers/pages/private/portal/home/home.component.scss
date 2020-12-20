@@ -1,10 +1,8 @@
 @import 'mixins';
 @import 'variables';
 
-.home-headline {
-  color: $headline-color;
-  font-size: 36px;
-  margin-bottom: 60px;
+.home-select {
+  width: 180px;
 }
 
 .task-container {
@@ -18,7 +16,6 @@
   line-height: 26px;
   display: flex;
   color: $headline-color;
-  font-weight: bold;
   align-items: center;
   margin-bottom: 20px;
   padding-right: 20px;

@@ -34,10 +34,6 @@ export class TableWithPaginationComponent implements OnChanges, AfterViewInit {
 
   country = Country;
 
-  onSubmit() {
-    this.applyFilter(this.filterForm.value.filter);
-  }
-
   constructor(private formBuilder: FormBuilder) {
     this.initForm();
   }
@@ -51,10 +47,15 @@ export class TableWithPaginationComponent implements OnChanges, AfterViewInit {
     this.dataSource.sort = this.sort;
   }
 
-  applyFilter(filterValue: string) {
-    filterValue = filterValue.trim(); // Remove whitespace
+  applyFilter() {
+    let filterValue = this.filterForm.value.filter.trim(); // Remove whitespace
     filterValue = filterValue.toLowerCase(); // DataSource defaults to lowercase matches
     this.dataSource.filter = filterValue;
+  }
+
+  resetFilter() {
+    this.dataSource.filter = '';
+    this.filterForm.patchValue({ filter: ''});
   }
 
   private initForm() {

@@ -20,7 +20,7 @@
 }
 
 .workflow-icon {
-  font-size: 32px;
+  font-size: 25px;
   font-weight: bold;
   color: $headline-color;
 }
@@ -32,6 +32,7 @@
   border-radius: 4px;
   overflow: hidden;
   display: block;
+  opacity: .8;
 
   .workflow-box:last-child {
     border-bottom: 0;

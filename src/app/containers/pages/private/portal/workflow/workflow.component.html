@@ -1,8 +1,8 @@
-<div class="workflow">
+<section class="workflow fade-in">
 
   <div class="workflow-container">
     <div class="headline">To Do
-      <mat-spinner *ngIf="loading" class="spinner-icon" [diameter]="30"></mat-spinner>
+      <mat-spinner *ngIf="loading" class="spinner-icon" [diameter]="25"></mat-spinner>
       <i *ngIf="!loading" class="fa fa-angle-right workflow-icon fade-in" aria-hidden="true"></i>
     </div>
 
@@ -40,7 +40,7 @@
 
   <div class="workflow-container">
     <div class="headline">In progress
-      <mat-spinner *ngIf="loading" class="spinner-icon" [diameter]="30"></mat-spinner>
+      <mat-spinner *ngIf="loading" class="spinner-icon" [diameter]="25"></mat-spinner>
       <i *ngIf="!loading" class="fa fa-angle-right workflow-icon fade-in" aria-hidden="true"></i>
     </div>
 
@@ -110,5 +110,4 @@
       </div>
     </div>
   </div>
-
-</div>
+</section>

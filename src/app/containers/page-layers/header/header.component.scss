@@ -6,6 +6,8 @@
   display: flex;
   align-items: center;
   @include box-shadow;
+  opacity: .9;
   transition: $transition;
   justify-content: space-between;
+  background-color: $white-color;
 }

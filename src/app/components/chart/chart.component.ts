@@ -52,7 +52,7 @@ export class ChartComponent implements OnChanges, OnDestroy {
 
   labelColor = '#8492af';
   innerTextColor = '#a5afc4';
-  mainChartColor = 'rgba(47, 80, 168, .7)';
+  mainChartColor = 'rgba(99, 136, 232, .8)';
 
   composeTitlePlugin = {
     id: 'innerText',
@@ -61,7 +61,7 @@ export class ChartComponent implements OnChanges, OnDestroy {
       const centerX = ((chart.chartArea.left + chart.chartArea.right) / 2);
       const centerY = ((chart.chartArea.top + chart.chartArea.bottom) / 2);
       const text = this.text;
-      const ident = this.text.length > 1 ? 10 : 5;
+      const ident = this.text.length > 1 ? 15 : 5;
 
       ctx.restore();
       ctx.font = 'bold 28px Roboto';
