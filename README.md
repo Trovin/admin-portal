@@ -1,2 +1,2 @@
-# Merkury
+# Merkury app
 
